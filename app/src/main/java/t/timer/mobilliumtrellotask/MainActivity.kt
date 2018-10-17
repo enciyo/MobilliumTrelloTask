@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val PREFS_FILE = ".com.timer"
+    val PREFS_FILE = ".com.sharedpreferences"
     val KEY_NAME = "NAME"
     val KEY_AGE = "AGE"
     val KEY_JOB = "JOB"
