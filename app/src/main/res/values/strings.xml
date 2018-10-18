@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobilliumTrelloTask</string>
+    <string name="gdg_name">\tGDG (Google Developers Groups) herkese açık, gönüllü, yeni teknolojilerle uğraşmayı, Google teknolojileriyle ilgili deneyimlerini paylaşmayı seven geliştirici topluluklarıdır.
+    </string>
 </resources>
