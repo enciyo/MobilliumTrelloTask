@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.CheckBoxPreference
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.util.Log
@@ -12,18 +13,25 @@ import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,SeekBar.OnSeekBarChangeListener {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,SeekBar.OnSeekBarChangeListener,RadioGroup.OnCheckedChangeListener,RatingBar.OnRatingBarChangeListener{
+
 
     companion object {
         val TAG: String = MainActivity.javaClass.simpleName
     }
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //RatingBar
+        rBar.onRatingBarChangeListener = this
+        ///
+
+        //RadioGroup
+        rGroup.setOnCheckedChangeListener(this)
+        ///
 
         //SeekBar
         sBar.setOnSeekBarChangeListener(this)
@@ -86,7 +94,24 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,See
     }
     ///
 
+    //RadioGroup
+    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+        if(checkedId==1){
+            txvState.text="RadioButton-1 Selected"
+        }
+        else if(checkedId==2){
+            txvState.text="RadioButton-2 Selected"
+        }
 
+    }
+    ///
+
+    //RatingBar
+    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+            txvState.text="RatingBar value: "+ratingBar?.rating.toString()
+    }
+
+    ///
 
 
 
