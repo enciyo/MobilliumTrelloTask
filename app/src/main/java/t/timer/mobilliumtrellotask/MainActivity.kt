@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val spinner: Spinner = findViewById(R.id.spinner)
         spinner.onItemSelectedListener = this
 
         ArrayAdapter.createFromResource(
