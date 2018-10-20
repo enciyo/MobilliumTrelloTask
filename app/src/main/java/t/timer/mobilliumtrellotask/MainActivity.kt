@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         var adapter:listAdapter =listAdapter(this,Color.colors)
 
-         gridview.adapter=adapter
+         listView.adapter=adapter
 
 
     }
