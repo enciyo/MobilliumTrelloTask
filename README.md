@@ -1,5 +1,5 @@
 # MobilliumTrelloTask
-#Contents
+# Contents
 - Activty Lifecycle
 - SharedPreferences
 - Runtime Permissions
