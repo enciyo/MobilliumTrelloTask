@@ -13,7 +13,7 @@ import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,SeekBar.OnSeekBarChangeListener,RadioGroup.OnCheckedChangeListener,RatingBar.OnRatingBarChangeListener{
+class MainActivity : AppCompatActivity() {
 
 
     companion object {
@@ -25,93 +25,33 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,See
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //RatingBar
-        rBar.onRatingBarChangeListener = this
-        ///
-
-        //RadioGroup
-        rGroup.setOnCheckedChangeListener(this)
-        ///
-
-        //SeekBar
-        sBar.setOnSeekBarChangeListener(this)
-        sBar.progress = 40
-        sBar.max=60
-        ///
-
-        //Spinner
-        spinner.onItemSelectedListener = this
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.Spinner_array,
-            R.layout.support_simple_spinner_dropdown_item
-        ).also { arrayAdapter ->
-
-            arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
-            spinner.adapter = arrayAdapter
-        }
-        ///
-
-        //CheckBox
-        cBox.setOnClickListener {
-            checkBoxControl()
-        }
-        ///
-
-
-    }
-    //CheckBox
-    private fun checkBoxControl() {
-        if(cBox.isChecked){
-            txvState.text="Checkbox Enable"
-        }
-        else {
-            txvState.text="CheckBox Disable"
-        }
-    }
-    ///
-
-    //Spinner
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        txvState.text=seekBar?.progress.toString()
-    }
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        Log.i(TAG, "onNothingSelected")
-    }
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Log.i("OnItemSelected", position.toString())
-        txvState.text=parent?.getItemAtPosition(position).toString()
-    }
-    ///
-
-    //SeekBar
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-        txvState.text="onStartTrackingTouch"
+        Log.i(TAG,"onCreate")
     }
 
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-        txvState.text="onStopTrackingTouch"
-    }
-    ///
-
-    //RadioGroup
-    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-        if(checkedId==1){
-            txvState.text="RadioButton-1 Selected"
-        }
-        else if(checkedId==2){
-            txvState.text="RadioButton-2 Selected"
-        }
-
-    }
-    ///
-
-    //RatingBar
-    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
-            txvState.text="RatingBar value: "+ratingBar?.rating.toString()
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG,"onStart")
     }
 
-    ///
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG,"onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG,"onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"onDestroy")
+    }
 
 
 
