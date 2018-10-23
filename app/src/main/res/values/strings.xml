@@ -3,9 +3,9 @@
     <string name="gdg_name">\tGDG (Google Developers Groups) herkese açık, gönüllü, yeni teknolojilerle uğraşmayı,
         Google teknolojileriyle ilgili deneyimlerini paylaşmayı seven geliştirici topluluklarıdır.
     </string>
-    <string-array name="Spinner_array">
-        <item>Item-1</item>
-        <item>Item-2</item>
+    <string-array name="autoComplete">
+        <item>item-1</item>
+        <item>item-2</item>
         <item>Item-3</item>
         <item>Item-4</item>
         <item>Item-5</item>
