@@ -9,3 +9,8 @@
 - GridView
 - Spinner
 - WebView
+- DrawerMenu
+- RecyclerView
+- TabLayout
+- ViewPager(with Adapter)
+- TextInputLayout - AutoCompleteText
