@@ -1,6 +1,8 @@
 package t.timer.mobilliumtrellotask
 
+import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
@@ -9,17 +11,30 @@ import t.timer.mobilliumtrellotask.Fragments.AboutFragment
 import t.timer.mobilliumtrellotask.Fragments.HomeFragment
 import t.timer.mobilliumtrellotask.Fragments.ProfileFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
+
+    override fun onPageScrollStateChanged(state: Int) {
+        Log.i(TAG, "onPageScrollStateChanged")
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+        Log.i(TAG, "onPageScrolled")
+    }
+
+    override fun onPageSelected(position: Int) {
+        when (position) {
+            0 -> viewPager.setBackgroundColor(Color.WHITE)
+            1 -> viewPager.setBackgroundColor(Color.MAGENTA)
+            2 -> viewPager.setBackgroundColor(Color.GRAY)
+        }
+    }
 
 
     companion object {
         val TAG: String = "myLog"
-
     }
+
     var pagerAdapter: ViewPagerAdapter? = null
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         pagerAdapter!!.addFragments(AboutFragment(),"About")
 
         viewPager.adapter=pagerAdapter
+        viewPager.addOnPageChangeListener(this)
         tabLayout.setupWithViewPager(viewPager)
 
 
