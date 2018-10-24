@@ -1,22 +1,15 @@
 package t.timer.mobilliumtrellotask
 
-import android.annotation.SuppressLint
-import android.annotation.TargetApi
-import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.RequiresApi
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBar
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.ViewOutlineProvider
-import android.widget.ArrayAdapter
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.coroutines.experimental.CoroutineContext
-import kotlin.coroutines.experimental.coroutineContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,28 +19,61 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    @SuppressLint("ResourceType")
-    @TargetApi(Build.VERSION_CODES.M)
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i(TAG, "onCreate")
-
-        layoutEditText.setOnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus) {
-                if (layoutEditText.text.toString() != "e-mail") {
-                    layoutEditText.error = "e-mail wrong"
-                    textInputLayout.setErrorTextAppearance(R.style.error_appearance)
-                }
-            }
+        setSupportActionBar(toolbar)
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.apply {
+            setHomeAsUpIndicator(android.R.drawable.ic_menu_sort_by_size)
+            setDisplayHomeAsUpEnabled(true)
         }
 
-        val array = resources.getStringArray(R.array.autoComplete)
-        val arrayAdapter:ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_list_item_1,array)
-        autoCompleteTextView3.setAdapter(arrayAdapter)
+        drawerLayout.addDrawerListener(
+            object : DrawerLayout.DrawerListener {
+                override fun onDrawerStateChanged(newState: Int) {
+                    Log.i(TAG, "onDrawerStateChanged")
+                }
 
+                override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                    Log.i(TAG, "onDrawerSlide")
+                }
+
+                override fun onDrawerClosed(drawerView: View) {
+                    Log.i(TAG, "onDrawerClosed")
+                }
+
+                override fun onDrawerOpened(drawerView: View) {
+                    Log.i(TAG, "onDrawerOpened")
+                }
+
+            }
+        )
+
+
+        navigationView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_Home ->Toast.makeText(this,"Nav_Home",Toast.LENGTH_SHORT).show()
+                R.id.nav_About -> Toast.makeText(this,"Nav_About",Toast.LENGTH_SHORT).show()
+                R.id.nav_Profile -> Toast.makeText(this,"Nav_Profile",Toast.LENGTH_SHORT).show()
+            }
+
+            drawerLayout.closeDrawers()
+
+            true
+        }
     }
 
-
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item!!.itemId) {
+            android.R.id.home -> {
+                drawerLayout.openDrawer(GravityCompat.START)
+                true
+            }
+            else ->
+                return super.onOptionsItemSelected(item)
+        }
+    }
 }
