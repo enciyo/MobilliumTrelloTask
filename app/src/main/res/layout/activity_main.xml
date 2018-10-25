@@ -32,10 +32,21 @@
             app:tabTextColor="#000"
             app:tabIndicatorColor="#b71c1c"
     />
-    <android.support.v4.view.ViewPager
-            android:background="@color/colorPrimary"
-            android:id="@+id/viewPager"
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+                android:background="@color/colorPrimary"
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="18dp"
+                android:src="@android:drawable/ic_menu_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
 
 </LinearLayout>

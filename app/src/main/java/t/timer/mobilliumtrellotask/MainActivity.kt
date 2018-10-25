@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import t.timer.mobilliumtrellotask.Adapters.ViewPagerAdapter
 import t.timer.mobilliumtrellotask.Fragments.AboutFragment
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     }
 
     override fun onPageSelected(position: Int) {
+        fab.setOnClickListener {
+            Toast.makeText(this,pagerAdapter!!.getPageTitle(position).toString(),Toast.LENGTH_SHORT).show()
+        }
+
         when (position) {
             0 -> viewPager.setBackgroundColor(Color.WHITE)
             1 -> viewPager.setBackgroundColor(Color.MAGENTA)
@@ -29,9 +34,9 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         }
     }
 
-
     companion object {
         val TAG: String = "myLog"
+
     }
 
     var pagerAdapter: ViewPagerAdapter? = null
