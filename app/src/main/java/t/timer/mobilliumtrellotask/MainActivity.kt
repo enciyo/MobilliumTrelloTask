@@ -1,12 +1,12 @@
 package t.timer.mobilliumtrellotask
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.scrolview2.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,14 +21,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val layoutManager = LinearLayoutManager(this)
-        val layoutManager2 = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayout.VERTICAL
-        layoutManager2.orientation = LinearLayout.VERTICAL
-        recyclerView.layoutManager = layoutManager
-        recyclerView2.layoutManager = layoutManager2
-        recyclerView.adapter = RecyclerAdapter(this,Repo.models)
-        recyclerView2.adapter = RecyclerAdapter(this,Repo.models)
+        ebtnClick.setOnClickListener {
+            val snackbar:Snackbar = Snackbar.make(relativeLayout,"onClickListener",Snackbar.LENGTH_SHORT)
+            snackbar.show()
+
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder.apply {
+                title="Hello AlertDialog"
+                setMessage("onClick")
+                setPositiveButton("Positive"){dialog, which ->
+                    ebtnClick.setBackgroundColor(Color.GREEN)
+                }
+                setNegativeButton("Negative"){dialog, which ->
+                    ebtnClick.setBackgroundColor(Color.RED)
+                }
+                setNeutralButton("Cancel"){dialog, which ->
+                    ebtnClick.setBackgroundColor(Color.WHITE)
+                }
+            }
+            val dialog:Dialog = builder.create()
+            dialog.show()
+        }
+
+
+
 
     }
 
