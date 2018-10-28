@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single"/>
     <item
-            android:id="@+id/nav_Home"
+            android:id="@+id/appbar_add"
             android:title="Home"
-            android:icon="@drawable/gdgtekirdag"
+            android:icon="@android:drawable/ic_menu_add"
+            android:orderInCategory="1"
+            app:showAsAction="ifRoom"
     />
     <item
             android:title="Profile"
-            android:id="@+id/nav_Profile"
-            android:icon="@drawable/gdgtekirdag"
+            android:id="@+id/appbar_play"
+            android:icon="@android:drawable/ic_media_play"
+            android:orderInCategory="2"
+            app:showAsAction="ifRoom"
     />
     <item
-            android:icon="@drawable/gdgtekirdag"
-            android:id="@+id/nav_About"
-            android:title="About"
-    />
+            android:orderInCategory="3"
+            android:id="@+id/appbar_share"
+            app:showAsAction="ifRoom"
+            android:title="Share"
+            android:icon="@android:drawable/ic_menu_share"
+        />
 
 
 </menu>
