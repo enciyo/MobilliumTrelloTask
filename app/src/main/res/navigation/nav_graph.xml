@@ -11,7 +11,11 @@
 	          android:gravity="center"
 	          tools:layout="@layout/fragment_play">
 		<action android:id="@+id/onFragment"
-		        app:destination="@id/shareFragment"/>
+		        app:destination="@id/shareFragment"
+		        app:enterAnim="@anim/nav_default_pop_enter_anim"
+		        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+		        app:popUpTo="@+id/shareFragment"
+		        app:launchSingleTop="true"/>
 	</fragment>
 	<fragment android:id="@+id/shareFragment"
 	          android:name="t.timer.mobilliumtrellotask.shareFragment"
@@ -20,7 +24,9 @@
 		<action android:id="@+id/goBack"
 		        app:destination="@id/playFragment"/>
 		<action android:id="@+id/anotherFragment"
-		        app:destination="@id/anotherBlankFragment"/>
+		        app:destination="@+id/anotherBlankFragment"
+		        app:popUpToInclusive="false"
+		        app:popUpTo="@+id/anotherBlankFragment"/>
 	</fragment>
 	<fragment android:id="@+id/anotherBlankFragment"
 	          android:name="t.timer.mobilliumtrellotask.anotherBlankFragment"
