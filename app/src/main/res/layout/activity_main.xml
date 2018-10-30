@@ -8,8 +8,15 @@
         tools:context=".MainActivity"
 >
     <include layout="@layout/toolbar">
-
     </include>
+
+    <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    </FrameLayout>
 
 </RelativeLayout>
 

@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
 
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -34,10 +33,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragment = shareFragment()
+        val fragment2 = playFragment()
+
         when(item!!.itemId) {
-            R.id.appbar_add -> Snackbar.make(relativeLayout,"Add on Click",Snackbar.LENGTH_SHORT).show()
-            R.id.appbar_play -> Snackbar.make(relativeLayout,"Play on Click",Snackbar.LENGTH_SHORT).show()
-            R.id.appbar_share-> Snackbar.make(relativeLayout,"Share on Click",Snackbar.LENGTH_SHORT).show()
+            R.id.appbar_play -> {
+                fragmentTransaction.replace(R.id.frameLayout, fragment2)
+                fragmentTransaction.commit()
+            }
+            R.id.appbar_share -> {
+                Snackbar.make(relativeLayout, "Play on Share", Snackbar.LENGTH_SHORT).show()
+                fragmentTransaction.replace(R.id.frameLayout, fragment)
+                fragmentTransaction.commit()
+            }
         }
         return true
     }
