@@ -19,5 +19,11 @@
 	          tools:layout="@layout/fragment_share">
 		<action android:id="@+id/goBack"
 		        app:destination="@id/playFragment"/>
+		<action android:id="@+id/anotherFragment"
+		        app:destination="@id/anotherBlankFragment"/>
 	</fragment>
+	<fragment android:id="@+id/anotherBlankFragment"
+	          android:name="t.timer.mobilliumtrellotask.anotherBlankFragment"
+	          android:label="fragment_another_blank"
+	          tools:layout="@layout/fragment_another_blank"/>
 </navigation>

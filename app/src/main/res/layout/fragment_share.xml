@@ -5,12 +5,24 @@
              android:layout_height="match_parent"
              tools:context=".shareFragment">
 	
-	<Button android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:id="@+id/comeBackTo"
-	        android:layout_gravity="center"
-	        android:gravity="center_vertical"
-			android:text="come Back"
+	<LinearLayout android:layout_width="match_parent"
+	              android:layout_gravity="center_vertical"
+	              android:gravity="center"
+	              android:orientation="vertical"
+	              android:layout_height="wrap_content">
+		
+		<Button android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/comeBackTo"
+		        android:text="come Back"
 		/>
+		<Button android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/nextScreen"
+		        android:text="Another Fragment"
+		/>
+	
+	</LinearLayout>
+
 
 </FrameLayout>

@@ -19,6 +19,7 @@ class shareFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         comeBackTo.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.goBack))
+        nextScreen.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.anotherFragment))
         Snackbar.make(view,"Fragment Share",Snackbar.LENGTH_SHORT).show()
     }
 }
