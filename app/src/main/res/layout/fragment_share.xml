@@ -4,13 +4,13 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".shareFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:text="Share Fragment"/>
+	
+	<Button android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:id="@+id/comeBackTo"
+	        android:layout_gravity="center"
+	        android:gravity="center_vertical"
+			android:text="come Back"
+		/>
 
 </FrameLayout>

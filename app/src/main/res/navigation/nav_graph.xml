@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/playFragment">
+	
+	<fragment android:id="@+id/playFragment"
+	          android:name="t.timer.mobilliumtrellotask.playFragment"
+	          android:label="fragment_play"
+	          android:gravity="center"
+	          tools:layout="@layout/fragment_play">
+		<action android:id="@+id/onFragment"
+		        app:destination="@id/shareFragment"/>
+	</fragment>
+	<fragment android:id="@+id/shareFragment"
+	          android:name="t.timer.mobilliumtrellotask.shareFragment"
+	          android:label="fragment_share"
+	          tools:layout="@layout/fragment_share">
+		<action android:id="@+id/goBack"
+		        app:destination="@id/playFragment"/>
+	</fragment>
+</navigation>
